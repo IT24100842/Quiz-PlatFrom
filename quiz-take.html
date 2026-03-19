@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+  <script src="quiz-take.js" defer></script>
+</head>
+<body class="quiz-page-body" data-required-role="STUDENT" data-login-page="student-login.html">
+  <div class="page-shell">
+    <header class="page-header">
+      <div class="quiz-header-top">
+        <p class="eyebrow dark" data-quiz-take-subject>Quiz Platform</p>
+      </div>
+      <h1 class="quiz-take-title" data-quiz-take-title>Loading...</h1>
+    </header>
+
+    <main class="quiz-take-main" data-quiz-take-main>
+      <p class="quiz-loading" data-quiz-take-loading>Loading quiz questions...</p>
+    </main>
+  </div>
+</body>
+</html>

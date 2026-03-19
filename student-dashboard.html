@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+  <script src="quiz-management.js" defer></script>
+</head>
+<body class="dashboard-page" data-required-role="STUDENT" data-login-page="student-login.html">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Student Dashboard</h1>
+      </div>
+      <nav class="dashboard-nav" aria-label="Dashboard navigation">
+        <span data-user-name style="font-size:.9rem;opacity:.8;"></span>
+        <a href="student-login.html" data-logout="student">Logout</a>
+        
+      </nav>
+    </header>
+
+    <main class="dashboard-main student-layout">
+      <aside class="admin-sidebar student-sidebar-nav" aria-label="Student sections">
+        <h2 class="sidebar-title">Student Sections</h2>
+        <nav class="side-nav admin-side-nav" data-student-sidebar-nav>
+          <a class="active" href="#student-overview">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4 13.5 12 6l8 7.5"/><path d="M6 12.5V19h12v-6.5"/></svg></span>
+            <span>Overview</span>
+          </a>
+          <a href="#student-faculty-modules">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5z"/><path d="M7 10.5V15"/><path d="M17 10.5V15"/><path d="M4.5 13.5c2 2 5 3.5 7.5 3.5s5.5-1.5 7.5-3.5"/></svg></span>
+            <span>Faculty Modules</span>
+          </a>
+          <a href="#student-browse-quizzes">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 6h12M7 12h12M7 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></span>
+            <span>Browse Quizzes</span>
+          </a>
+        </nav>
+      </aside>
+
+      <section class="student-content">
+        <section class="dashboard-grid student-stats-grid" id="student-overview" aria-label="Student overview cards">
+          <article class="dash-card metric-card">
+            <h2>Attempted Quizzes</h2>
+            <div class="metric-value-row">
+              <span class="metric-icon metric-icon-success" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+                  <path d="m8.2 12.3 2.4 2.4 5-5"/>
+                </svg>
+              </span>
+              <span class="dash-value" data-attempted-quizzes>0</span>
+            </div>
+            <p>Total quiz attempts recorded for your account.</p>
+          </article>
+
+          <article class="dash-card metric-card metric-average-card">
+            <h2>Average Score</h2>
+            <div class="metric-average-wrap">
+              <div class="metric-ring" data-average-ring>
+                <svg viewBox="0 0 72 72" aria-hidden="true" focusable="false">
+                  <circle class="metric-ring-track" cx="36" cy="36" r="28"></circle>
+                  <circle class="metric-ring-progress" data-average-progress cx="36" cy="36" r="28"></circle>
+                </svg>
+                <span class="metric-ring-value" data-average-score>0%</span>
+              </div>
+              <p class="metric-average-label" data-average-band>Getting started</p>
+            </div>
+            <p>Average based on your submitted quiz scores.</p>
+          </article>
+
+          <article class="dash-card metric-card">
+            <h2>Highest Score</h2>
+            <div class="metric-value-row">
+              <span class="metric-icon metric-icon-accent" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M8 4h8v3a4 4 0 0 1-8 0V4z"/>
+                  <path d="M6 6H4a2 2 0 0 0 2 3h2"/>
+                  <path d="M18 6h2a2 2 0 0 1-2 3h-2"/>
+                  <path d="M12 11v4"/>
+                  <path d="M9 18h6"/>
+                </svg>
+              </span>
+              <span class="dash-value" data-highest-score>0%</span>
+            </div>
+            <p>Your best single quiz score so far.</p>
+          </article>
+        </section>
+
+        <section class="quiz-section" id="student-faculty-modules" aria-label="Faculty modules">
+          <div class="quiz-section-header">
+            <h2>Faculty Modules</h2>
+            <span class="quiz-count-badge" data-faculty-badge>Loading...</span>
+          </div>
+          <div class="module-grid" data-faculty-modules>
+            <p class="quiz-loading" data-faculty-loading>Loading faculty modules...</p>
+          </div>
+        </section>
+
+        <section class="quiz-section" id="student-browse-quizzes" aria-label="Browse available quizzes">
+          <div class="quiz-section-header">
+            <h2>Browse Quizzes</h2>
+            <span class="quiz-count-badge" data-quiz-count></span>
+          </div>
+          <div class="quiz-browse-controls">
+            <div class="quiz-search-wrap">
+              <span class="quiz-search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="11" cy="11" r="6"></circle>
+                  <path d="m16 16 4.2 4.2"></path>
+                </svg>
+              </span>
+              <input type="search" class="quiz-search-input" data-quiz-search
+                placeholder="Search quizzes..." aria-label="Search quizzes" />
+            </div>
+            <div class="quiz-filter-chips" data-quiz-filters></div>
+          </div>
+          <div class="quiz-grid" data-quiz-browse-grid>
+            <p class="quiz-loading" data-quiz-loading>Loading quizzes…</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

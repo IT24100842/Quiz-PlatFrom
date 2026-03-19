@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+  <script src="quiz-management.js" defer></script>
+  <script src="admin-sidebar.js" defer></script>
+</head>
+<body class="dashboard-page" data-required-role="ADMIN" data-login-page="admin-login.html">
+  <div class="dashboard-shell">
+    <header class="dashboard-header admin-modern-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Admin Dashboard</h1>
+      </div>
+      <button type="button" class="admin-sidebar-toggle" data-sidebar-toggle aria-label="Toggle admin sidebar" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main class="dashboard-main admin-modern-shell">
+      <aside class="admin-modern-sidebar" aria-label="Admin sections" data-admin-sidebar>
+        <div class="admin-modern-nav-group">
+          <p class="admin-modern-title">Primary Actions</p>
+          <nav class="admin-modern-nav" aria-label="Primary admin menu">
+            <button type="button" class="admin-modern-link active" data-admin-view-btn="add-quiz-view">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+              <span class="admin-modern-text">Add Quiz for Students</span>
+            </button>
+
+            <button type="button" class="admin-modern-link" data-admin-view-btn="added-quizzes-view">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M6 6h12v12H6z"/><path d="M9 10h6M9 14h6"/></svg>
+              </span>
+              <span class="admin-modern-text">Added Quizzes</span>
+            </button>
+
+            <button type="button" class="admin-modern-link" data-admin-view-btn="registered-students-view">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>
+              </span>
+              <span class="admin-modern-text">Registered Students</span>
+            </button>
+
+            <button type="button" class="admin-modern-link" data-admin-view-btn="submissions-view">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M7 5h10M7 12h10M7 19h10"/><path d="M4 5h.01M4 12h.01M4 19h.01"/></svg>
+              </span>
+              <span class="admin-modern-text">Student Submissions</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="admin-modern-profile">
+          <p>Signed in as</p>
+          <strong data-user-name>Admin</strong>
+        </div>
+
+        <div class="admin-modern-nav-group admin-modern-nav-group-bottom">
+          <p class="admin-modern-title">Administrative</p>
+          <nav class="admin-modern-nav" aria-label="Administrative actions">
+            <button type="button" class="admin-modern-link" data-admin-view-btn="admin-view">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1.7 1.7 0 0 1 0 2.4 1.7 1.7 0 0 1-2.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1.7 1.7 0 0 1-3.4 0v-.1a1 1 0 0 0-.7-.9 1 1 0 0 0-1.1.2l-.1.1a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1.7 1.7 0 0 1 0-3.4h.1a1 1 0 0 0 .9-.7 1 1 0 0 0-.2-1.1l-.1-.1a1.7 1.7 0 0 1 0-2.4 1.7 1.7 0 0 1 2.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1.7 1.7 0 0 1 3.4 0v.1a1 1 0 0 0 .7.9 1 1 0 0 0 1.1-.2l.1-.1a1.7 1.7 0 0 1 2.4 0 1.7 1.7 0 0 1 0 2.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1.7 1.7 0 0 1 0 3.4h-.1a1 1 0 0 0-.9.7z"/></svg>
+              </span>
+              <span class="admin-modern-text">Admin Settings</span>
+            </button>
+
+            <a class="admin-modern-link logout" href="admin-login.html" data-logout="admin">
+              <span class="admin-modern-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M21 3H11v4M21 21H11v-4"/></svg>
+              </span>
+              <span class="admin-modern-text">Logout</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <button type="button" class="admin-sidebar-backdrop" data-sidebar-backdrop aria-label="Close sidebar"></button>
+
+      <section class="admin-modern-content">
+        <section class="admin-view-panel active" data-admin-view="add-quiz-view">
+          <article class="dash-card admin-tool-card add-quiz-card" id="add-quiz-section">
+            <h2>Add Quiz for Students</h2>
+            <p>Create a quiz entry that appears on the student dashboard.</p>
+
+            <form class="quiz-admin-form" data-admin-quiz-form>
+              <h3 class="quiz-form-section-title">Quiz Details</h3>
+              <div class="quiz-form-grid">
+                <div class="quiz-form-field quiz-form-field-full">
+                  <label for="quiz-title">Quiz Title</label>
+                  <input id="quiz-title" name="title" type="text" placeholder="Cyber Security Basics" required />
+                  <p class="form-field-error" data-field-error="title" aria-live="polite"></p>
+                </div>
+
+                <div class="quiz-form-field">
+                  <label for="quiz-module">Module</label>
+                  <select id="quiz-module" name="module" required>
+                    <option value="" selected disabled>Select a module</option>
+                    <option value="Object Oriented Programming">Object Oriented Programming</option>
+                    <option value="Database Systems">Database Systems</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                    <option value="English">English</option>
+                  </select>
+                  <p class="form-field-error" data-field-error="module" aria-live="polite"></p>
+                </div>
+
+                <div class="quiz-form-field">
+                  <label for="quiz-target-faculty">Target Faculty</label>
+                  <select id="quiz-target-faculty" name="targetFaculty" required>
+                    <option value="IT">IT</option>
+                    <option value="BUSINESS">Business</option>
+                    <option value="ENGINEERING">Engineering</option>
+                    <option value="MEDICINE">Medicine</option>
+                    <option value="ALL">All Faculties</option>
+                  </select>
+                </div>
+
+                <div class="quiz-form-field">
+                  <label for="quiz-exam-type">Exam Type</label>
+                  <select id="quiz-exam-type" name="examType" required>
+                    <option value="" selected disabled>Select exam type</option>
+                    <option value="Quiz">Quiz</option>
+                    <option value="Midterm">Midterm</option>
+                    <option value="Final">Final</option>
+                    <option value="Assignment">Assignment</option>
+                    <option value="Practical">Practical</option>
+                  </select>
+                  <p class="form-field-error" data-field-error="examType" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <hr class="quiz-form-divider" />
+
+              <h3 class="quiz-form-section-title">Scheduling</h3>
+              <div class="quiz-form-grid quiz-form-grid-two">
+                <div class="quiz-form-field">
+                  <label for="quiz-minutes">Duration (minutes)</label>
+                  <input id="quiz-minutes" name="minutes" type="number" min="1" placeholder="15" required />
+                  <p class="form-field-error" data-field-error="minutes" aria-live="polite"></p>
+                </div>
+
+                <div class="quiz-form-field">
+                  <label for="quiz-total-marks">Total Marks</label>
+                  <input id="quiz-total-marks" name="totalMarks" type="number" min="1" placeholder="100" required />
+                  <p class="form-field-error" data-field-error="totalMarks" aria-live="polite"></p>
+                </div>
+
+                <div class="quiz-form-field quiz-form-field-full">
+                  <label for="quiz-scheduled-date">Scheduled Date</label>
+                  <input id="quiz-scheduled-date" name="scheduledDate" type="date" />
+                </div>
+              </div>
+
+              <div class="quiz-submit-actions">
+                <button type="button" class="btn-outline" data-add-quiz-clear>Clear Form</button>
+                <button type="submit" class="btn-primary" data-add-quiz-submit>Add Quiz</button>
+              </div>
+            </form>
+          </article>
+        </section>
+
+        <section class="admin-view-panel" data-admin-view="added-quizzes-view">
+          <section class="admin-tools" aria-label="Admin quiz management">
+            <article class="dash-card admin-tool-card" id="added-quizzes-section">
+              <h2>Added Quizzes</h2>
+              <p>Click <strong>Manage Questions</strong> on any quiz to add or edit its questions.</p>
+              <ul class="admin-quiz-list" data-admin-quiz-list></ul>
+              <p class="admin-empty" data-admin-empty>No custom quizzes added yet.</p>
+            </article>
+          </section>
+
+          <section class="question-editor-section" data-question-editor style="display:none;" aria-label="Question editor">
+            <article class="dash-card">
+              <div class="question-editor-header">
+                <div>
+                  <h2>Questions for: <span data-editor-quiz-title></span></h2>
+                  <p class="question-editor-sub" data-editor-question-count></p>
+                </div>
+                <button type="button" class="btn-outline" data-close-editor>X Close</button>
+              </div>
+
+              <ul class="question-list" data-question-list></ul>
+              <p class="admin-empty" data-question-empty style="display:none;">No questions yet. Add the first one below.</p>
+
+              <div class="question-form-wrap">
+                <h3 class="question-form-title" data-question-form-title>Add a Question</h3>
+                <form class="question-form" data-question-form>
+                  <input type="hidden" data-editing-question-id />
+
+                  <div class="form-alert form-alert-error" data-question-error-alert style="display:none;">
+                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-message" data-question-error-text></span>
+                  </div>
+
+                  <label for="q-text">Question Text</label>
+                  <textarea id="q-text" name="text" rows="2" placeholder="Type the question here..." required></textarea>
+
+                  <label for="q-type">Question Type</label>
+                  <select id="q-type" data-question-type required>
+                    <option value="SINGLE">Single-answer MCQ (one correct)</option>
+                    <option value="MULTIPLE">Multiple-answer MCQ (multiple correct)</option>
+                  </select>
+
+                  <p class="options-label">Answer Options <span class="options-hint">(exactly 5 options)</span></p>
+                  <div class="options-builder" data-options-builder></div>
+                  <p class="options-hint">Single-answer: mark exactly one correct option. Multiple-answer: mark two or more correct options.</p>
+
+                  <div class="explanation-field-wrap">
+                    <label for="q-explanation" class="explanation-label">
+                      <span class="explanation-icon">💡</span>
+                      Why is this the answer?
+                    </label>
+                    <textarea id="q-explanation" name="explanation" rows="3" placeholder="Explain why the correct option(s) are correct and why common wrong choices are incorrect."></textarea>
+                  </div>
+
+                  <div class="question-form-actions">
+                    <button type="submit" class="btn-primary" data-question-submit-btn>Add Question</button>
+                    <button type="button" class="btn-outline" data-cancel-edit style="display:none;">Cancel Edit</button>
+                  </div>
+                </form>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <section class="admin-view-panel" data-admin-view="registered-students-view">
+          <section class="admin-submissions" aria-label="Registered students">
+            <article class="dash-card admin-submissions-card" id="registered-students-section">
+              <div class="submission-head">
+                <div>
+                  <h2>Registered Students</h2>
+                  <p>Students who created accounts on the platform.</p>
+                </div>
+              </div>
+
+              <div class="submission-table-wrap">
+                <table class="submission-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Registered At</th>
+                    </tr>
+                  </thead>
+                  <tbody data-admin-students-body></tbody>
+                </table>
+              </div>
+
+              <p class="admin-empty" data-admin-students-empty>No students have registered yet.</p>
+            </article>
+          </section>
+        </section>
+
+        <section class="admin-view-panel" data-admin-view="submissions-view">
+          <section class="admin-submissions" aria-label="Student submissions and scores">
+            <article class="dash-card admin-submissions-card" id="student-submissions-section">
+              <div class="submission-head">
+                <div>
+                  <h2>Student Submissions</h2>
+                  <p>Submitted quizzes and scores from student attempts.</p>
+                </div>
+                <button type="button" class="button-danger" data-clear-submissions>Clear Submissions</button>
+              </div>
+
+              <div class="submission-table-wrap">
+                <table class="submission-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Quiz</th>
+                      <th>Score</th>
+                      <th>Submitted At</th>
+                    </tr>
+                  </thead>
+                  <tbody data-admin-submissions-body></tbody>
+                </table>
+              </div>
+
+              <p class="admin-empty" data-admin-submissions-empty>No submissions yet.</p>
+            </article>
+          </section>
+        </section>
+
+        <section class="admin-view-panel" data-admin-view="admin-view">
+          <article class="dash-card admin-tool-card">
+            <h2>Admin Overview</h2>
+            <p>Quick summary of platform activity.</p>
+            <div class="module-grid">
+              <article class="module-card">
+                <h3>Total Quizzes</h3>
+                <p data-quiz-count>0</p>
+              </article>
+              <article class="module-card">
+                <h3>Registered Students</h3>
+                <p data-student-count>0</p>
+              </article>
+              <article class="module-card">
+                <h3>Submissions</h3>
+                <p data-submission-count>0</p>
+              </article>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

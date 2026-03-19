@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathematics Basics Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="quiz-timer.js" defer></script>
+  <script src="quiz-submission.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Mathematics Basics Quiz</h1>
+      </div>
+      
+    </header>
+
+    <main class="dashboard-main">
+      <div class="quiz-meta">
+        <p class="quiz-instruction">Answer all questions before the timer ends.</p>
+        <p class="timer-pill">Time Left: <span data-time-left>--:--</span></p>
+      </div>
+
+      <form class="quiz-page" action="#" method="post" data-quiz-timer data-duration-minutes="25" data-quiz-title="Mathematics Basics Quiz">
+        <article class="question-card">
+          <h2>1. What is the value of 12 x 8?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q1" required /> 86</label></li>
+            <li><label><input type="radio" name="q1" data-correct="true" /> 96</label></li>
+            <li><label><input type="radio" name="q1" /> 106</label></li>
+            <li><label><input type="radio" name="q1" /> 116</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>2. Which fraction is equal to 0.5?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q2" required /> 1/4</label></li>
+            <li><label><input type="radio" name="q2" /> 1/3</label></li>
+            <li><label><input type="radio" name="q2" data-correct="true" /> 1/2</label></li>
+            <li><label><input type="radio" name="q2" /> 2/5</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>3. Solve: 45 - 19 = ?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q3" required /> 24</label></li>
+            <li><label><input type="radio" name="q3" /> 25</label></li>
+            <li><label><input type="radio" name="q3" data-correct="true" /> 26</label></li>
+            <li><label><input type="radio" name="q3" /> 27</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>4. What is 9 squared (9^2)?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q4" required /> 18</label></li>
+            <li><label><input type="radio" name="q4" /> 72</label></li>
+            <li><label><input type="radio" name="q4" data-correct="true" /> 81</label></li>
+            <li><label><input type="radio" name="q4" /> 99</label></li>
+          </ul>
+        </article>
+
+        <div class="quiz-actions">
+          <button type="submit">Submit Quiz</button>
+          <a href="student-dashboard.html" class="button-secondary">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

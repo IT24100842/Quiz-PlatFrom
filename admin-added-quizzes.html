@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Added Quizzes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+  <script src="quiz-management.js" defer></script>
+</head>
+<body class="dashboard-page" data-required-role="ADMIN" data-login-page="admin-login.html">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Added Quizzes</h1>
+      </div>
+    </header>
+
+    <main class="dashboard-main admin-layout">
+      <aside class="admin-sidebar" aria-label="Admin sections">
+        <h2 class="sidebar-title">Admin Sections</h2>
+        <p class="admin-nav-group-title">Primary Actions</p>
+        <nav class="side-nav admin-side-nav admin-side-nav-primary">
+          <a href="admin-dashboard.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+            <span>Add Quiz for Students</span>
+          </a>
+          <a class="active" href="admin-added-quizzes.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6h12v12H6z"/><path d="M9 10h6M9 14h6"/></svg></span>
+            <span>Added Quizzes</span>
+          </a>
+          <a href="admin-registered-students.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></span>
+            <span>Registered Students</span>
+          </a>
+          <a href="admin-student-submissions.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 6h12M7 12h12M7 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></span>
+            <span>Student Submissions</span>
+          </a>
+        </nav>
+
+        <div class="admin-side-spacer" aria-hidden="true"></div>
+
+        <p class="admin-nav-group-title">Administrative</p>
+        <nav class="side-nav admin-side-nav admin-side-nav-secondary">
+          <a href="admin-dashboard.html#admin-view">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1.7 1.7 0 0 1 0 2.4 1.7 1.7 0 0 1-2.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1.7 1.7 0 0 1-3.4 0v-.1a1 1 0 0 0-.7-.9 1 1 0 0 0-1.1.2l-.1.1a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1.7 1.7 0 0 1 0-3.4h.1a1 1 0 0 0 .9-.7 1 1 0 0 0-.2-1.1l-.1-.1a1.7 1.7 0 0 1 0-2.4 1.7 1.7 0 0 1 2.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1.7 1.7 0 0 1 3.4 0v.1a1 1 0 0 0 .7.9 1 1 0 0 0 1.1-.2l.1-.1a1.7 1.7 0 0 1 2.4 0 1.7 1.7 0 0 1 0 2.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1.7 1.7 0 0 1 0 3.4h-.1a1 1 0 0 0-.9.7z"/></svg></span>
+            <span>Admin Settings</span>
+          </a>
+          <a href="admin-login.html" data-logout="admin">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M21 3H11v4M21 21H11v-4"/></svg></span>
+            <span>Logout</span>
+          </a>
+        </nav>
+
+        <div class="admin-sidebar-account">
+          <span class="admin-sidebar-user" data-user-name>Admin</span>
+        </div>
+      </aside>
+
+      <section class="admin-content">
+        <section class="admin-tools" aria-label="Admin quiz management">
+          <article class="dash-card admin-tool-card" id="added-quizzes-section">
+            <h2>Added Quizzes</h2>
+            <p>Click <strong>Manage Questions</strong> on any quiz to add or edit its questions.</p>
+
+            <div class="admin-quiz-toolbar" role="search" aria-label="Search and filter quizzes">
+              <label class="admin-quiz-search-wrap" for="admin-quiz-search">
+                <span class="admin-toolbar-label">Search</span>
+                <input
+                  id="admin-quiz-search"
+                  type="search"
+                  class="admin-quiz-search"
+                  data-quiz-search-input
+                  placeholder="Search by quiz, module, exam type..."
+                />
+              </label>
+
+              <label class="admin-quiz-filter-wrap" for="admin-faculty-filter">
+                <span class="admin-toolbar-label">Audience</span>
+                <select id="admin-faculty-filter" class="admin-quiz-filter" data-quiz-faculty-filter>
+                  <option value="ALL_FACULTIES">All faculties</option>
+                  <option value="IT">IT</option>
+                  <option value="BUSINESS">Business</option>
+                  <option value="ENGINEERING">Engineering</option>
+                  <option value="MEDICINE">Medicine</option>
+                  <option value="ALL">All students</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="admin-quiz-table-wrap">
+              <table class="admin-quiz-table" aria-label="Added quizzes table">
+                <thead>
+                  <tr>
+                    <th scope="col">Quiz Title</th>
+                    <th scope="col">Subject / Module</th>
+                    <th scope="col">Stats</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-admin-quiz-list></tbody>
+              </table>
+            </div>
+
+            <p class="admin-empty" data-admin-empty>No custom quizzes added yet.</p>
+          </article>
+        </section>
+
+        <section class="question-editor-section" data-question-editor style="display:none;" aria-label="Question editor">
+          <article class="dash-card">
+            <div class="question-editor-header">
+              <div>
+                <h2>Questions for: <span data-editor-quiz-title></span></h2>
+                <p class="question-editor-sub" data-editor-question-count></p>
+              </div>
+              <button type="button" class="btn-outline" data-close-editor>X Close</button>
+            </div>
+
+            <ul class="question-list" data-question-list></ul>
+            <p class="admin-empty" data-question-empty style="display:none;">No questions yet. Add the first one below.</p>
+
+            <div class="question-form-wrap">
+              <h3 class="question-form-title" data-question-form-title>Add a Question</h3>
+              <form class="question-form" data-question-form>
+                <input type="hidden" data-editing-question-id />
+
+                <div class="form-alert form-alert-error" data-question-error-alert style="display:none;">
+                  <span class="alert-icon">⚠️</span>
+                  <span class="alert-message" data-question-error-text></span>
+                </div>
+
+                <label for="q-text">Question Text</label>
+                <textarea id="q-text" name="text" rows="2" placeholder="Type the question here..." required></textarea>
+
+                <label for="q-type">Question Type</label>
+                <select id="q-type" data-question-type required>
+                  <option value="SINGLE">Single-answer MCQ (one correct)</option>
+                  <option value="MULTIPLE">Multiple-answer MCQ (multiple correct)</option>
+                </select>
+
+                <p class="options-label">Answer Options <span class="options-hint">(exactly 5 options)</span></p>
+                <div class="options-builder" data-options-builder></div>
+                <p class="options-hint">Single-answer: mark exactly one correct option. Multiple-answer: mark two or more correct options.</p>
+
+                <div class="explanation-field-wrap">
+                  <label for="q-explanation" class="explanation-label">
+                    <span class="explanation-icon">💡</span>
+                    Why is this the answer?
+                  </label>
+                  <textarea id="q-explanation" name="explanation" rows="3" placeholder="Explain why the correct option(s) are correct and why common wrong choices are incorrect."></textarea>
+                </div>
+
+                <div class="question-form-actions">
+                  <button type="submit" class="btn-primary" data-question-submit-btn>Add Question</button>
+                  <button type="button" class="btn-outline" data-cancel-edit style="display:none;">Cancel Edit</button>
+                </div>
+              </form>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

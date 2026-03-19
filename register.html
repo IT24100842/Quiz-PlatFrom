@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+</head>
+<body data-register-role="STUDENT">
+  <main class="page">
+    <section class="panel panel-brand" aria-hidden="true">
+      <p class="eyebrow">Quiz Platform</p>
+      <h1>Create Student Account</h1>
+      <p class="lead">Register once to start quizzes, track your scores, and access upcoming assessments from your dashboard.</p>
+      <div class="status-card">
+        <h2>Registration Access</h2>
+        <p>New student accounts are added immediately and become visible to administrators.</p>
+      </div>
+    </section>
+
+    <section class="panel panel-form">
+      <div class="form-wrap">
+        <p class="eyebrow">Student Registration</p>
+        <h2>Create Your Account</h2>
+        <p class="form-note">Use a valid email address so your quiz records stay linked to your profile.</p>
+
+        <form class="login-form register-form" novalidate>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Nimal Perera" required />
+
+          <label for="email">Student Email</label>
+          <input type="email" id="email" name="email" placeholder="student@quizplatform.com" required />
+
+          <label for="faculty">Faculty</label>
+          <select id="faculty" name="faculty" required>
+            <option value="IT">IT</option>
+            <option value="BUSINESS">Business</option>
+            <option value="ENGINEERING">Engineering</option>
+            <option value="MEDICINE">Medicine</option>
+          </select>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="At least 6 characters" required />
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required />
+
+          <button type="submit">Create Student Account</button>
+          <p class="switch-auth">Already registered? <a href="student-login.html" class="link">Student login</a></p>
+          <p class="switch-auth">Need admin access? <a href="admin-login.html" class="link">Admin login</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

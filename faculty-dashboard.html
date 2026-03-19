@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="faculty-dashboard.js" defer></script>
+</head>
+<body>
+  <main class="page" style="min-height:100vh;grid-template-columns:1fr;max-width:840px;">
+    <section class="panel panel-form" style="max-width:840px;">
+      <div class="form-wrap" style="max-width:760px;">
+        <p class="eyebrow">Student Management System</p>
+        <h2>Faculty Dashboard</h2>
+        <p id="faculty-meta" class="form-note">Loading faculty modules...</p>
+
+        <section class="quiz-section" aria-label="Faculty modules">
+          <div class="quiz-section-header">
+            <h2>Available Modules</h2>
+          </div>
+          <div id="module-list" class="module-grid">
+            <p class="quiz-loading">Please wait...</p>
+          </div>
+        </section>
+
+        <p id="dashboard-error" class="login-error" style="display:none;"></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

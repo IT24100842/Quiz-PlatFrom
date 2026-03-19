@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Fundamentals Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="quiz-timer.js" defer></script>
+  <script src="quiz-submission.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Physics Fundamentals Quiz</h1>
+      </div>
+      
+    </header>
+
+    <main class="dashboard-main">
+      <div class="quiz-meta">
+        <p class="quiz-instruction">Answer all questions before the timer ends.</p>
+        <p class="timer-pill">Time Left: <span data-time-left>--:--</span></p>
+      </div>
+
+      <form class="quiz-page" action="#" method="post" data-quiz-timer data-duration-minutes="20" data-quiz-title="Physics Fundamentals Quiz">
+        <article class="question-card">
+          <h2>1. What is the SI unit of force?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q1" required /> Joule</label></li>
+            <li><label><input type="radio" name="q1" data-correct="true" /> Newton</label></li>
+            <li><label><input type="radio" name="q1" /> Watt</label></li>
+            <li><label><input type="radio" name="q1" /> Pascal</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>2. What is the acceleration due to gravity on Earth (approx)?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q2" required /> 4.9 m/s^2</label></li>
+            <li><label><input type="radio" name="q2" data-correct="true" /> 9.8 m/s^2</label></li>
+            <li><label><input type="radio" name="q2" /> 12 m/s^2</label></li>
+            <li><label><input type="radio" name="q2" /> 15 m/s^2</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>3. Which law states F = ma?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q3" required /> Newton's First Law</label></li>
+            <li><label><input type="radio" name="q3" data-correct="true" /> Newton's Second Law</label></li>
+            <li><label><input type="radio" name="q3" /> Newton's Third Law</label></li>
+            <li><label><input type="radio" name="q3" /> Law of Gravitation</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>4. Which quantity is a scalar?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q4" required /> Velocity</label></li>
+            <li><label><input type="radio" name="q4" /> Force</label></li>
+            <li><label><input type="radio" name="q4" data-correct="true" /> Speed</label></li>
+            <li><label><input type="radio" name="q4" /> Acceleration</label></li>
+          </ul>
+        </article>
+
+        <div class="quiz-actions">
+          <button type="submit">Submit Quiz</button>
+          <a href="student-dashboard.html" class="button-secondary">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

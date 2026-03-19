@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Comprehension Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="quiz-timer.js" defer></script>
+  <script src="quiz-submission.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>English Comprehension Quiz</h1>
+      </div>
+      
+    </header>
+
+    <main class="dashboard-main">
+      <div class="quiz-meta">
+        <p class="quiz-instruction">Answer all questions before the timer ends.</p>
+        <p class="timer-pill">Time Left: <span data-time-left>--:--</span></p>
+      </div>
+
+      <form class="quiz-page" action="#" method="post" data-quiz-timer data-duration-minutes="15" data-quiz-title="English Comprehension Quiz">
+        <article class="question-card">
+          <h2>1. Choose the correct synonym of "rapid".</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q1" required /> Slow</label></li>
+            <li><label><input type="radio" name="q1" data-correct="true" /> Quick</label></li>
+            <li><label><input type="radio" name="q1" /> Narrow</label></li>
+            <li><label><input type="radio" name="q1" /> Quiet</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>2. Identify the noun in this sentence: "The student wrote neatly."</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q2" required data-correct="true" /> student</label></li>
+            <li><label><input type="radio" name="q2" /> wrote</label></li>
+            <li><label><input type="radio" name="q2" /> neatly</label></li>
+            <li><label><input type="radio" name="q2" /> the</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>3. Choose the sentence with correct punctuation.</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q3" required /> where are you going.</label></li>
+            <li><label><input type="radio" name="q3" data-correct="true" /> Where are you going?</label></li>
+            <li><label><input type="radio" name="q3" /> Where are you going</label></li>
+            <li><label><input type="radio" name="q3" /> where are you going?</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>4. Choose the correct past tense of "go".</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q4" required /> goed</label></li>
+            <li><label><input type="radio" name="q4" /> gone</label></li>
+            <li><label><input type="radio" name="q4" data-correct="true" /> went</label></li>
+            <li><label><input type="radio" name="q4" /> going</label></li>
+          </ul>
+        </article>
+
+        <div class="quiz-actions">
+          <button type="submit">Submit Quiz</button>
+          <a href="student-dashboard.html" class="button-secondary">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

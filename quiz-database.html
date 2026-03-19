@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Essentials Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="quiz-timer.js" defer></script>
+  <script src="quiz-submission.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Database Essentials Quiz</h1>
+      </div>
+     
+    </header>
+
+    <main class="dashboard-main">
+      <div class="quiz-meta">
+        <p class="quiz-instruction">Answer all questions before the timer ends.</p>
+        <p class="timer-pill">Time Left: <span data-time-left>--:--</span></p>
+      </div>
+
+      <form class="quiz-page" action="#" method="post" data-quiz-timer data-duration-minutes="22" data-quiz-title="Database Essentials Quiz">
+        <article class="question-card">
+          <h2>1. What does SQL stand for?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q1" required data-correct="true" /> Structured Query Language</label></li>
+            <li><label><input type="radio" name="q1" /> Simple Query Language</label></li>
+            <li><label><input type="radio" name="q1" /> Standard Quick Logic</label></li>
+            <li><label><input type="radio" name="q1" /> System Query Layer</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>2. Which command is used to retrieve data?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q2" required /> INSERT</label></li>
+            <li><label><input type="radio" name="q2" /> UPDATE</label></li>
+            <li><label><input type="radio" name="q2" data-correct="true" /> SELECT</label></li>
+            <li><label><input type="radio" name="q2" /> DELETE</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>3. What is a primary key used for?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q3" required /> Encrypting tables</label></li>
+            <li><label><input type="radio" name="q3" data-correct="true" /> Uniquely identifying each row</label></li>
+            <li><label><input type="radio" name="q3" /> Sorting query output only</label></li>
+            <li><label><input type="radio" name="q3" /> Backing up databases</label></li>
+          </ul>
+        </article>
+
+        <article class="question-card">
+          <h2>4. Which normal form removes repeating groups?</h2>
+          <ul class="option-list">
+            <li><label><input type="radio" name="q4" required data-correct="true" /> 1NF</label></li>
+            <li><label><input type="radio" name="q4" /> 2NF</label></li>
+            <li><label><input type="radio" name="q4" /> 3NF</label></li>
+            <li><label><input type="radio" name="q4" /> BCNF</label></li>
+          </ul>
+        </article>
+
+        <div class="quiz-actions">
+          <button type="submit">Submit Quiz</button>
+          <a href="student-dashboard.html" class="button-secondary">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

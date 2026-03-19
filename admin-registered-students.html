@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registered Students</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="auth.js" defer></script>
+  <script src="quiz-management.js" defer></script>
+</head>
+<body class="dashboard-page" data-required-role="ADMIN" data-login-page="admin-login.html">
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow dark">Quiz Platform</p>
+        <h1>Registered Students</h1>
+      </div>
+    </header>
+
+    <main class="dashboard-main admin-layout">
+      <aside class="admin-sidebar" aria-label="Admin sections">
+        <h2 class="sidebar-title">Admin Sections</h2>
+        <p class="admin-nav-group-title">Primary Actions</p>
+        <nav class="side-nav admin-side-nav admin-side-nav-primary">
+          <a href="admin-dashboard.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+            <span>Add Quiz for Students</span>
+          </a>
+          <a href="admin-added-quizzes.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6h12v12H6z"/><path d="M9 10h6M9 14h6"/></svg></span>
+            <span>Added Quizzes</span>
+          </a>
+          <a class="active" href="admin-registered-students.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></span>
+            <span>Registered Students</span>
+          </a>
+          <a href="admin-student-submissions.html">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 6h12M7 12h12M7 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></span>
+            <span>Student Submissions</span>
+          </a>
+        </nav>
+
+        <div class="admin-side-spacer" aria-hidden="true"></div>
+
+        <p class="admin-nav-group-title">Administrative</p>
+        <nav class="side-nav admin-side-nav admin-side-nav-secondary">
+          <a href="admin-dashboard.html#admin-view">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a1.7 1.7 0 0 1 0 2.4 1.7 1.7 0 0 1-2.4 0l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a1.7 1.7 0 0 1-3.4 0v-.1a1 1 0 0 0-.7-.9 1 1 0 0 0-1.1.2l-.1.1a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.4l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a1.7 1.7 0 0 1 0-3.4h.1a1 1 0 0 0 .9-.7 1 1 0 0 0-.2-1.1l-.1-.1a1.7 1.7 0 0 1 0-2.4 1.7 1.7 0 0 1 2.4 0l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a1.7 1.7 0 0 1 3.4 0v.1a1 1 0 0 0 .7.9 1 1 0 0 0 1.1-.2l.1-.1a1.7 1.7 0 0 1 2.4 0 1.7 1.7 0 0 1 0 2.4l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a1.7 1.7 0 0 1 0 3.4h-.1a1 1 0 0 0-.9.7z"/></svg></span>
+            <span>Admin Settings</span>
+          </a>
+          <a href="admin-login.html" data-logout="admin">
+            <span class="admin-nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/><path d="M21 3H11v4M21 21H11v-4"/></svg></span>
+            <span>Logout</span>
+          </a>
+        </nav>
+
+        <div class="admin-sidebar-account">
+          <span class="admin-sidebar-user" data-user-name>Admin</span>
+        </div>
+      </aside>
+
+      <section class="admin-content">
+        <section class="admin-submissions" aria-label="Registered students">
+          <article class="dash-card admin-submissions-card" id="registered-students-section">
+            <div class="submission-head">
+              <div>
+                <h2 class="students-title">Registered Students <span class="student-total-count" data-student-total-label>(0)</span></h2>
+                <p>Students who created accounts on the platform.</p>
+              </div>
+              <label class="student-table-search" for="student-search-input">
+                <span class="student-table-search-label">Search</span>
+                <input id="student-search-input" type="search" placeholder="Find by name or email" data-student-search />
+              </label>
+            </div>
+
+            <div class="submission-table-wrap">
+              <table class="submission-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th class="registered-at-col">Registered At</th>
+                    <th class="student-actions-col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-admin-students-body></tbody>
+              </table>
+            </div>
+
+            <section class="student-profile-panel" data-student-profile-panel style="display:none;" aria-label="Student profile history">
+              <div class="student-profile-head">
+                <div>
+                  <h3 data-profile-student-name>Student Profile</h3>
+                  <p data-profile-summary></p>
+                </div>
+                <button type="button" class="btn-outline btn-sm" data-close-profile>Close</button>
+              </div>
+
+              <div class="submission-table-wrap">
+                <table class="submission-table student-profile-history-table">
+                  <thead>
+                    <tr>
+                      <th>Quiz</th>
+                      <th>Score</th>
+                      <th>Submitted At</th>
+                    </tr>
+                  </thead>
+                  <tbody data-profile-history-body></tbody>
+                </table>
+              </div>
+              <p class="admin-empty" data-profile-history-empty style="display:none;">No submissions for this student yet.</p>
+            </section>
+
+            <p class="admin-empty" data-admin-students-empty>No students have registered yet.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
